@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Github Profile Search" icon-name="standard:data_mapping">
+        <div class="slds-p-around_medium slds-align_absolute-center">
+            <lightning-input class="vsd-search" type="text" placeholder="Search Profile" onkeypress={searchFieldChangeHandler}></lightning-input>
+        </div>
+        <template if:true={isProfileThere}>
+            <template for:each={userProfiles.items} for:item="userProfile">
+                <div class="slds-p-around_medium" key={userProfile.id}>
+                    <c-github-user-tiles user-profile={userProfile}></c-github-user-tiles>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>
